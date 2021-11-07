@@ -25,4 +25,10 @@ class Bottles
       "#{number -1 } bottles of milk on the wall.\n"
     end
   end
+
+  def verses(starting,ending)
+    starting.downto(ending).collect do |number_of_bottles|
+      verse(number_of_bottles)
+    end.join("\n")
+  end
 end

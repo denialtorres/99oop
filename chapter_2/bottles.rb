@@ -1,6 +1,16 @@
 # Shameless Green
 
 class Bottles
+  def song
+    verses(99, 0)
+  end
+
+  def verses(starting,ending)
+    starting.downto(ending).collect do |number_of_bottles|
+      verse(number_of_bottles)
+    end.join("\n")
+  end
+
   def verse(number)
     case number
     when 0
@@ -24,11 +34,5 @@ class Bottles
       "Take one down and pass it around, " +
       "#{number -1 } bottles of milk on the wall.\n"
     end
-  end
-
-  def verses(starting,ending)
-    starting.downto(ending).collect do |number_of_bottles|
-      verse(number_of_bottles)
-    end.join("\n")
   end
 end

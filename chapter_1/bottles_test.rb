@@ -1,7 +1,7 @@
 gem 'minitest', '~>5'
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'bottles_1'
+require_relative 'bottles_2'
 
 class BottlesTest < Minitest::Test
   def test_the_first_verse
@@ -277,7 +277,7 @@ Take one down and pass it around, 1 bottle of milk on the wall.
 Take it down and pass it around, no more bottles of milk on the wall.
 No more bottles of milk on the wall, no more bottles of milk.
 Go to the store and buy some more, 99 bottles of milk on the wall.
-    SONG
-    assert_equal expected, Bottles.new.song
+SONG
+  assert_equal expected, Bottles.new.song, :highlight => true
   end
 end

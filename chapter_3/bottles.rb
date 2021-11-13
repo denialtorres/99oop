@@ -11,6 +11,14 @@ class Bottles
     end.join("\n")
   end
 
+  def container(number)
+    if number == 1
+      'bottle'
+    else
+      'bottles'
+    end
+  end
+
   def verse(number)
     case number
     when 0
@@ -23,26 +31,11 @@ class Bottles
       "1 bottle of milk.\n" +
       "Take it down and pass it around, " +
       "no more bottles of milk on the wall.\n"
-    when 2
-      "2 bottles of milk on the wall, " +
-      "2 bottles of milk.\n" +
-      "Take one down and pass it around, " +
-      "1 bottle of milk on the wall.\n"
-    when 6
-      "1 six-pack of milk on the wall, " +
-      "1 six-pack of milk.\n" +
-      "Take one down and pass it around, " +
-      "5 bottles of milk on the wall.\n"
-    when 7
-      "7 bottles of milk on the wall, " +
-      "7 bottles of milk.\n" +
-      "Take one down and pass it around, " +
-      "1 six-pack of milk on the wall.\n"
     else
       "#{number} bottles of milk on the wall, " +
       "#{number} bottles of milk.\n" +
       "Take one down and pass it around, " +
-      "#{number -1 } bottles of milk on the wall.\n"
+      "#{number - 1 } #{container(number-1)} of milk on the wall.\n"
     end
   end
 end

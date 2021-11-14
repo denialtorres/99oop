@@ -35,17 +35,25 @@ class Bottles
     end
   end
 
+  def action(number)
+    if number == 0
+      'Go to the store and buy some more, '
+    else
+      "Take #{pronoun(number)} down and pass it around, "
+    end
+  end
+
   def verse(number)
     case number
     when 0
       "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
         "#{quantity(number)} #{container(number)} of milk.\n" \
-        'Go to the store and buy some more, ' \
+        "#{action(number)}" \
         "99 bottles of milk on the wall.\n"
     else
       "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
         "#{quantity(number)} #{container(number)} of milk.\n" \
-        "Take #{pronoun(number)} down and pass it around, " \
+        "#{action(number)}" \
         "#{quantity(number-1)} #{container(number - 1)} of milk on the wall.\n"
     end
   end

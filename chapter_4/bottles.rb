@@ -12,7 +12,7 @@ class Bottles
   end
 
   def quantity(number)
-    if number == 0
+    if number.zero?
       "no more"
     else
       number.to_s
@@ -43,18 +43,18 @@ class Bottles
     end
   end
 
-  def verse(number)
-    case number
-    when 0
-      "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
-        "#{quantity(number)} #{container(number)} of milk.\n" \
-        "#{action(number)}" \
-        "99 bottles of milk on the wall.\n"
+  def sucessor(number)
+    if number.zero?
+      99
     else
-      "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
-        "#{quantity(number)} #{container(number)} of milk.\n" \
-        "#{action(number)}" \
-        "#{quantity(number-1)} #{container(number - 1)} of milk on the wall.\n"
+      number - 1
     end
+  end
+
+  def verse(number)
+    "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
+      "#{quantity(number)} #{container(number)} of milk.\n" \
+      "#{action(number)}" \
+      "#{quantity(sucessor(number))} #{container(sucessor(number))} of milk on the wall.\n"
   end
 end

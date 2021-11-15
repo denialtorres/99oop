@@ -60,31 +60,12 @@ class Bottles
     end.join("\n")
   end
 
-  def container(number)
-    BottleNumber.new(number).container
-  end
-
-  def quantity(number)
-    BottleNumber.new(number).quantity
-  end
-
-  def pronoun(number)
-    BottleNumber.new(number).pronoun
-  end
-
-
-  def action(number)
-    BottleNumber.new(number).action
-  end
-
-  def sucessor(number)
-    BottleNumber.new(number).sucessor
-  end
-
   def verse(number)
-    "#{quantity(number).capitalize} #{container(number)} of milk on the wall, " \
-      "#{quantity(number)} #{container(number)} of milk.\n" \
-      "#{action(number)}" \
-      "#{quantity(sucessor(number))} #{container(sucessor(number))} of milk on the wall.\n"
+    bottle_number = BottleNumber.new(number)
+    next_bottle_number =  BottleNumber.new(bottle_number.sucessor)
+    "#{bottle_number.quantity.capitalize} #{bottle_number.container} of milk on the wall, " \
+      "#{bottle_number.quantity} #{bottle_number.container} of milk.\n" \
+      "#{bottle_number.action}" \
+      "#{next_bottle_number.quantity} #{next_bottle_number.container} of milk on the wall.\n"
   end
 end
